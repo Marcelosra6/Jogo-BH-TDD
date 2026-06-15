@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://nublma8h5xwk"]
+
+[ext_resource type="Script" uid="uid://chmb0uqep6x8d" path="res://Scenes/jogador.gd" id="1_w43nc"]
+[ext_resource type="Texture2D" uid="uid://co5n7b0isct0h" path="res://Imgs/personajeNF.png" id="2_w43nc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6dqt"]
+radius = 15.0
+height = 54.0
+
+[node name="Jogador" type="Node2D" unique_id=1380988029]
+script = ExtResource("1_w43nc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=995119469]
+modulate = Color(0.99914795, 0.7988196, 0.85310924, 1)
+position = Vector2(1, -20)
+scale = Vector2(0.04232243, 0.055520844)
+texture = ExtResource("2_w43nc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=718914295]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183605630]
+position = Vector2(1, -8)
+shape = SubResource("CapsuleShape2D_k6dqt")
+
+[connection signal="body_entered" from="Area2D" to="." method="recibir_dano"]

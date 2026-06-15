@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://b5plnnx7bxrjb"]
+
+[ext_resource type="PackedScene" uid="uid://nublma8h5xwk" path="res://Scenes/jogador.tscn" id="1_bpi8g"]
+[ext_resource type="Script" uid="uid://vd5pndgwgr06" path="res://Scripts/juego.gd" id="1_hblkt"]
+[ext_resource type="PackedScene" uid="uid://b8h2momp7bjfw" path="res://Scenes/enemigo.tscn" id="3_sbygf"]
+[ext_resource type="PackedScene" uid="uid://cv2wtx305hlp1" path="res://bala.tscn" id="4_ubyp4"]
+[ext_resource type="PackedScene" uid="uid://o2dr0dwg5xou" path="res://bala_enemigo.tscn" id="5_ll0et"]
+[ext_resource type="PackedScene" uid="uid://b6nyhn85m6cw8" path="res://global.tscn" id="6_b83u4"]
+[ext_resource type="Texture2D" uid="uid://vxc1xyqa71wg" path="res://Imgs/image.png" id="7_3lnup"]
+
+[node name="Juego" type="Node2D" unique_id=894978718]
+script = ExtResource("1_hblkt")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=145636647]
+position = Vector2(272.5, 460.5)
+scale = Vector2(0.7096354, 0.7099533)
+texture = ExtResource("7_3lnup")
+
+[node name="Jogador" parent="." unique_id=1380988029 instance=ExtResource("1_bpi8g")]
+position = Vector2(228, 853)
+
+[node name="Enemigo" parent="." unique_id=1803510338 instance=ExtResource("3_sbygf")]
+position = Vector2(225, 3)
+
+[node name="Bala" parent="." unique_id=1566053508 instance=ExtResource("4_ubyp4")]
+position = Vector2(-27, 442)
+
+[node name="BalaEnemigo" parent="." unique_id=1009681024 instance=ExtResource("5_ll0et")]
+position = Vector2(-60, 277)
+
+[node name="Global" parent="." unique_id=1025151077 instance=ExtResource("6_b83u4")]
+position = Vector2(-71, -62)

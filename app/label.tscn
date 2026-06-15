@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bqbf4rx31noyn"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_kp246"]
+
+[node name="Jogador" type="Node2D" unique_id=1638010868]
+position = Vector2(51, 29)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=301247336]
+position = Vector2(-2, 0)
+texture = SubResource("ImageTexture_kp246")

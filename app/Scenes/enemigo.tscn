@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b8h2momp7bjfw"]
+
+[ext_resource type="Script" uid="uid://cmp7gsvxfljpj" path="res://Scenes/enemigo.gd" id="1_t4vig"]
+[ext_resource type="Texture2D" uid="uid://10de8nogu5ri" path="res://Imgs/Boss.png" id="2_t4vig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4vig"]
+size = Vector2(65.5, 37.5)
+
+[node name="Enemigo" type="Node2D" unique_id=1803510338]
+script = ExtResource("1_t4vig")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=932641210]
+position = Vector2(2, 90.000015)
+scale = Vector2(0.33872113, 0.5214843)
+texture = ExtResource("2_t4vig")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1775405477]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1755740798]
+position = Vector2(4, 175)
+shape = SubResource("RectangleShape2D_t4vig")
+
+[connection signal="body_entered" from="Area2D" to="." method="recibir_dano"]
