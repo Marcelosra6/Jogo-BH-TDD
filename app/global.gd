@@ -20,7 +20,7 @@ func restar_vida_jugador(cantidad: int):
 	player_vida -= cantidad
 	print("Vida Jugador: ", player_vida)
 	if player_vida <= 0:
-		congelar_pantalla("GIT GUD NIGGA!")
+		congelar_pantalla("GIT GUD NIGGA")
 
 func restar_vida_enemigo(cantidad: float):
 	if juego_terminado: return

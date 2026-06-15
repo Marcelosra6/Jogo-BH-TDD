@@ -12,6 +12,7 @@ func _process(delta):
 	if Input.is_action_pressed("click") and timer_disparo <= 0:
 		timer_disparo = cadencia
 		disparar()
+	
 func disparar() -> void:
 	var b = escenaBala.instantiate()
 	b.global_position = global_position

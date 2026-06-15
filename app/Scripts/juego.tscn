@@ -12,12 +12,12 @@
 script = ExtResource("1_hblkt")
 
 [node name="Fondo" type="Sprite2D" parent="." unique_id=145636647]
-position = Vector2(272.5, 460.5)
-scale = Vector2(0.7096354, 0.7099533)
+position = Vector2(272.5, 494.50003)
+scale = Vector2(0.7096354, 0.7628305)
 texture = ExtResource("7_3lnup")
 
 [node name="Jogador" parent="." unique_id=1380988029 instance=ExtResource("1_bpi8g")]
-position = Vector2(228, 853)
+position = Vector2(222, 723)
 
 [node name="Enemigo" parent="." unique_id=1803510338 instance=ExtResource("3_sbygf")]
 position = Vector2(225, 3)
@@ -26,7 +26,7 @@ position = Vector2(225, 3)
 position = Vector2(-27, 442)
 
 [node name="BalaEnemigo" parent="." unique_id=1009681024 instance=ExtResource("5_ll0et")]
-position = Vector2(-60, 277)
+position = Vector2(-48, 226)
 
 [node name="Global" parent="." unique_id=1025151077 instance=ExtResource("6_b83u4")]
 position = Vector2(-71, -62)
