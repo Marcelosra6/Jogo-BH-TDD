@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var velocidad: float = 600.0
+@export var velocidad: float = 800.0
 var direccion: Vector2 = Vector2.DOWN
 
 func _process(delta: float) -> void:

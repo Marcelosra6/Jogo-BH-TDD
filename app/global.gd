@@ -3,7 +3,7 @@ extends Node
 var max_player_vida: int = 5
 var player_vida: int = 5
 var enemy_vida: float = 10000.0
-
+var player_velocidad: float = 400.0
 var juego_terminado: bool = false
 
 func _ready() -> void:

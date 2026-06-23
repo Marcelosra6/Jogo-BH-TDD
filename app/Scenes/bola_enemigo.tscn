@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c40qpq2w4475o"]
+
+[ext_resource type="Script" uid="uid://cd1uqoe8y05tf" path="res://Scenes/bola_enemigo.gd" id="1_3yw01"]
+[ext_resource type="Texture2D" uid="uid://xpsueygrvvf1" path="res://Imgs/bolaNF.png" id="1_4ot0c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8uese"]
+radius = 63.28507
+
+[node name="BolaEnemigo" type="Area2D" unique_id=1226671202]
+script = ExtResource("1_3yw01")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=68033732]
+position = Vector2(-8.000023, 0.99998474)
+scale = Vector2(0.4217002, 0.3836689)
+texture = ExtResource("1_4ot0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559710514]
+position = Vector2(-10, 0)
+shape = SubResource("CircleShape2D_8uese")

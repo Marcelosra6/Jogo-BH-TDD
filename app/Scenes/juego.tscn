@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cp48cgbakrfpm"]
+
+[ext_resource type="Script" uid="uid://vd5pndgwgr06" path="res://Scripts/juego.gd" id="1_3g55f"]
+[ext_resource type="Texture2D" uid="uid://vxc1xyqa71wg" path="res://Imgs/image.png" id="2_pi06e"]
+[ext_resource type="PackedScene" uid="uid://nublma8h5xwk" path="res://Scenes/jogador.tscn" id="3_f0at8"]
+[ext_resource type="PackedScene" uid="uid://b8h2momp7bjfw" path="res://Scenes/enemigo.tscn" id="4_r5jw4"]
+[ext_resource type="PackedScene" uid="uid://cv2wtx305hlp1" path="res://bala.tscn" id="5_is4ij"]
+[ext_resource type="PackedScene" uid="uid://o2dr0dwg5xou" path="res://bala_enemigo.tscn" id="6_c5cua"]
+[ext_resource type="PackedScene" uid="uid://b6nyhn85m6cw8" path="res://global.tscn" id="7_il20q"]
+[ext_resource type="Script" uid="uid://chu3g0u8j7drr" path="res://Scripts/global.gd" id="8_r5jw4"]
+[ext_resource type="PackedScene" uid="uid://n66mjcrjskla" path="res://bola_enemigo.tscn" id="9_f0at8"]
+[ext_resource type="AudioStream" uid="uid://m8al82yawdhr" path="res://SoundsAndMusic/PURRPPP loop.wav" id="9_is4ij"]
+[ext_resource type="PackedScene" uid="uid://p4rwg6q07rh" path="res://Scenes/pausa.tscn" id="11_is4ij"]
+
+[node name="Juego" type="Node2D" unique_id=894978718]
+script = ExtResource("1_3g55f")
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=145636647]
+position = Vector2(272.5, 494.50003)
+scale = Vector2(0.7096354, 0.7628305)
+texture = ExtResource("2_pi06e")
+
+[node name="Jogador" parent="." unique_id=1380988029 instance=ExtResource("3_f0at8")]
+position = Vector2(281, 732)
+
+[node name="Enemigo" parent="." unique_id=1803510338 instance=ExtResource("4_r5jw4")]
+position = Vector2(278, 17)
+
+[node name="Bala" parent="." unique_id=1566053508 instance=ExtResource("5_is4ij")]
+position = Vector2(-27, 442)
+
+[node name="BalaEnemigo" parent="." unique_id=1009681024 instance=ExtResource("6_c5cua")]
+position = Vector2(-48, 226)
+
+[node name="Global" parent="." unique_id=1025151077 instance=ExtResource("7_il20q")]
+position = Vector2(-71, -62)
+script = ExtResource("8_r5jw4")
+
+[node name="Loop" type="AudioStreamPlayer2D" parent="." unique_id=1820380522]
+stream = ExtResource("9_is4ij")
+volume_db = -10.7
+autoplay = true
+
+[node name="BolaEnemigo" parent="." unique_id=1226671202 instance=ExtResource("9_f0at8")]
+position = Vector2(-139, 101)
+
+[node name="Pausa" parent="." unique_id=1894047206 instance=ExtResource("11_is4ij")]
+
+[node name="Final" type="AudioStreamPlayer2D" parent="." unique_id=1993644660]

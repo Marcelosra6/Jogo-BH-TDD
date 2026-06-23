@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://nx75idi65p84"]
+
+[ext_resource type="Script" uid="uid://bnaj3uy7kunea" path="res://Scripts/audio_manager.gd" id="1_0hehx"]
+[ext_resource type="AudioStream" uid="uid://c2l2mr6d40pbf" path="res://SoundsAndMusic/427396__erokia__plasma-lazer-pistol-gun-shot-1.wav" id="1_hhwve"]
+[ext_resource type="AudioStream" uid="uid://dusltdogt6s8p" path="res://SoundsAndMusic/257234__javierzumer__fire-shot.wav" id="2_qixve"]
+[ext_resource type="AudioStream" uid="uid://byumptxkr0t53" path="res://SoundsAndMusic/849000__artninja__berserker_or_hulk_distressed_screaming_roar_sound_03252026.wav" id="3_0hehx"]
+[ext_resource type="AudioStream" uid="uid://be7j17v0imyry" path="res://SoundsAndMusic/bola sonido.wav" id="5_mjqhu"]
+[ext_resource type="AudioStream" uid="uid://onpqberyix5u" path="res://SoundsAndMusic/evil laught nueva.wav" id="7_5kf6k"]
+
+[node name="AudioManager" type="Node2D" unique_id=903843047]
+script = ExtResource("1_0hehx")
+
+[node name="BalaAudio" type="AudioStreamPlayer2D" parent="." unique_id=189683152]
+stream = ExtResource("1_hhwve")
+volume_db = -50.585
+bus = &"SFX"
+
+[node name="BalaEnemigoAudio" type="AudioStreamPlayer2D" parent="." unique_id=771970976]
+stream = ExtResource("2_qixve")
+volume_db = -41.925
+bus = &"SFX"
+
+[node name="BolaEnemigoAudio" type="AudioStreamPlayer2D" parent="." unique_id=366180549]
+stream = ExtResource("5_mjqhu")
+volume_db = -47.45
+bus = &"SFX"
+
+[node name="MuerteEnemigoAudio" type="AudioStreamPlayer2D" parent="." unique_id=972005248]
+stream = ExtResource("3_0hehx")
+
+[node name="Muerte" type="AudioStreamPlayer2D" parent="." unique_id=1568850189]
+stream = ExtResource("7_5kf6k")
+volume_db = 6.175

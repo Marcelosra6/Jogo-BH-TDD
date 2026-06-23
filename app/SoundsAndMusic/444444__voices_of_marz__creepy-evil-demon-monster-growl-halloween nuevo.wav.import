@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ce6ax70cfby7a"
+path="res://.godot/imported/444444__voices_of_marz__creepy-evil-demon-monster-growl-halloween nuevo.wav-e7fdbc8638dc49f5a4ef4a0bbf7d2e0d.sample"
+
+[deps]
+
+source_file="res://SoundsAndMusic/444444__voices_of_marz__creepy-evil-demon-monster-growl-halloween nuevo.wav"
+dest_files=["res://.godot/imported/444444__voices_of_marz__creepy-evil-demon-monster-growl-halloween nuevo.wav-e7fdbc8638dc49f5a4ef4a0bbf7d2e0d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

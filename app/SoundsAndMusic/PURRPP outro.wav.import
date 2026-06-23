@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c36rh5iock6lg"
+path="res://.godot/imported/PURRPP outro.wav-576f42cf2e195c240f8b573d0fb57b35.sample"
+
+[deps]
+
+source_file="res://SoundsAndMusic/PURRPP outro.wav"
+dest_files=["res://.godot/imported/PURRPP outro.wav-576f42cf2e195c240f8b573d0fb57b35.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

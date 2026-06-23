@@ -1,7 +1,7 @@
 extends Node2D
 
 var dir = Vector2(0,-1)
-@export var velocidad: float = 600.0
+@export var velocidad: float = 800.0
 func _ready():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.

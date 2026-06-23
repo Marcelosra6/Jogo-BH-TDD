@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://n66mjcrjskla"]
 
-[ext_resource type="Script" uid="uid://drv5rhfaucdd7" path="res://bola_enemigo.gd" id="1_8uese"]
+[ext_resource type="Script" path="res://bola_enemigo.gd" id="1_2vadb"]
 [ext_resource type="Texture2D" uid="uid://xpsueygrvvf1" path="res://Imgs/bolaNF.png" id="1_tygqt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8uese"]
-radius = 88.02273
+radius = 63.28507
 
-[node name="BolaEnemigo" type="Area2D" unique_id=1476041742]
-script = ExtResource("1_8uese")
+[node name="BolaEnemigo" type="Area2D" unique_id=1226671202]
+script = ExtResource("1_2vadb")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831133633]
-position = Vector2(-5, -1)
-scale = Vector2(0.6521253, 0.6319911)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=68033732]
+position = Vector2(-8.000023, 0.99998474)
+scale = Vector2(0.4217002, 0.3836689)
 texture = ExtResource("1_tygqt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1269276544]
-position = Vector2(-6, 5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=559710514]
+position = Vector2(-10, 0)
 shape = SubResource("CircleShape2D_8uese")
+
+[connection signal="area_entered" from="." to="." method="_on_area_2d_area_entered"]
