@@ -32,4 +32,12 @@ func restar_vida_enemigo(cantidad: float):
 func congelar_pantalla(mensaje: String):
 	print(mensaje)
 	juego_terminado = true
-	get_tree().paused = true #congela todo
+	get_tree().paused = true
+	if enemy_vida <= 0:
+		AudioManager.play_muerte_enemigo()
+	else:
+		AudioManager.play_muerte()
+	var timer = get_tree().create_timer(2.0, false, true)
+	await timer.timeout
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")

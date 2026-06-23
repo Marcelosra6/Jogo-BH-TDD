@@ -5,7 +5,7 @@ var limite_derecha: float = 0.0
 var limite_izquierda: float = 0.0
 var limite_sur: float = 0.0
 var avanzando: bool = true
-var cadencia: float = 0.20
+var cadencia: float = 0.4
 var timer_disparo: float = 0.0
 var escenaBala = load("res://bala_enemigo.tscn")
 var escenaBola = load("res://bola_enemigo.tscn")
@@ -66,7 +66,6 @@ func disparo1() -> void:
 	angulo_actual = 0
 	disparando = true
 	timer_entre_balas = 0.0
-	AudioManager.play_bala_enemigo()
 
 func disparo2() -> void:
 	for i in 60:
@@ -75,7 +74,7 @@ func disparo2() -> void:
 		b.global_position = $Area2D/CollisionShape2D.global_position
 		b.direccion = Vector2.DOWN.rotated(deg_to_rad(ang))
 		get_parent().add_child(b)
-	AudioManager.play_bala_enemigo()
+	AudioManager.play_bala_enemigo2()
 func disparo3() -> void:
 	if disparos_bola_restantes <= 0 or disparando_bola:
 		return
@@ -102,5 +101,6 @@ func disparar_siguiente_bala() -> void:
 	get_parent().add_child(b)
 	angulo_actual += 1
 	timer_entre_balas = 0.16#delay
+	AudioManager.play_bala_enemigo()
 	if angulo_actual >= ctdBalas:
 		disparando = false

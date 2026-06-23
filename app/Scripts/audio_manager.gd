@@ -2,9 +2,13 @@ extends Node2D
 
 @onready var balaAudio: AudioStreamPlayer2D = $BalaAudio
 @onready var balaEnAud: AudioStreamPlayer2D = $BalaEnemigoAudio
+@onready var balaEnAud2: AudioStreamPlayer2D = $BalaEnemigo2Audio
 @onready var bolaEnAud: AudioStreamPlayer2D = $BolaEnemigoAudio
 @onready var muerteEnAu: AudioStreamPlayer2D = $MuerteEnemigoAudio
 @onready var muerte: AudioStreamPlayer2D = $Muerte
+
+func _ready() -> void:
+	process_mode = PROCESS_MODE_ALWAYS
 
 func _play(player: AudioStreamPlayer2D) -> void:
 	if player.playing:
@@ -16,6 +20,9 @@ func play_bala() -> void:
 
 func play_bala_enemigo() -> void:
 	_play(balaEnAud)
+	
+func play_bala_enemigo2() -> void:
+	_play(balaEnAud2)
 
 func play_bola_enemigo() -> void:
 	_play(bolaEnAud)
