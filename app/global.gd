@@ -2,7 +2,7 @@ extends Node
 
 var max_player_vida: int = 5
 var player_vida: int = 5
-var enemy_vida: float = 10000.0
+var enemy_vida: float = 100000.0
 var player_velocidad: float = 400.0
 var juego_terminado: bool = false
 
@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func reset_game():
 	player_vida = max_player_vida
-	enemy_vida = 10000.0
+	enemy_vida = 100000.0
 	juego_terminado = false
 	get_tree().paused = false
 
@@ -32,4 +32,12 @@ func restar_vida_enemigo(cantidad: float):
 func congelar_pantalla(mensaje: String):
 	print(mensaje)
 	juego_terminado = true
-	get_tree().paused = true #congela todo
+	get_tree().paused = true
+	if enemy_vida <= 0:
+		AudioManager.play_muerte_enemigo()
+		await AudioManager.muerteEnAu.finished
+	else:
+		AudioManager.play_muerte()
+		await AudioManager.muerte.finished
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/inicio.tscn")

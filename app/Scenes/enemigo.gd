@@ -1,29 +1,29 @@
 extends Node2D
-
+#movimiento no en infinito
 var velocidad: float = 300.0
 var limite_derecha: float = 0.0
 var limite_izquierda: float = 0.0
 var limite_sur: float = 0.0
 var avanzando: bool = true
-var cadencia: float = 0.20
+
+var cadencia: float = 0.4
 var timer_disparo: float = 0.0
+#escenas a usar
 var escenaBala = load("res://bala_enemigo.tscn")
 var escenaBola = load("res://bola_enemigo.tscn")
-var ctdBalas: float = 0.0
-var angulo_actual: float = 0.0
-var disparando: bool = false
-var timer_entre_balas: float = 0.0
-
+var escenaJugador = load("res://jogador.tscn")
+@onready var puntoDisparo = $Area2D/CollisionShape2D
+#vida
 var vida = Global.enemy_vida
+#movimiento en infinito
 var tiempo_infinito: float = 0.0
 var centro_infinito_x: float = 0.0
 var centro_infinito_y: float = 0.0
-var disparos_bola_restantes: int = 3
-var disparando_bola: bool = false
-var bolas_en_secuencia: int = 0
-var timer_entre_bolas: float = 0.0
+#variables para disparos
+@onready var timerEstatico = $Timer
 
 func _ready() -> void:
+	#definicion de limites 
 	var ancho = get_viewport().get_visible_rect().size.x
 	limite_derecha = ancho - 50 
 	limite_izquierda = 50
@@ -31,76 +31,63 @@ func _ready() -> void:
 	centro_infinito_y = position.y
 
 func _process(delta):
+	#primera parte, disparo estatico
+	disparoEstatico()
+	while vida > 0:
+		if escenaJugador.position.y - position.y < 350.00 || vida == vida - 500:
+			disparoEstatico()
+		else:
+			disparoRafaga()
+			if randi()%100 + 1 < 67:
+				disparo180()
+				
+			if randi()%100 + 1 < 40:
+				disparoBola()
+	#control de movimiento infinito
 	tiempo_infinito += delta
 	var t = tiempo_infinito * 1.5
 	var radio_x = (limite_derecha - limite_izquierda) / 2.0
 	var radio_y = radio_x * 0.35
 	position.x = centro_infinito_x + radio_x * sin(t)
 	position.y = centro_infinito_y + radio_y * sin(2.0 * t)
-	
-	if disparando_bola:
-		if timer_entre_bolas > 0:
-			timer_entre_bolas -= delta
-		else:
-			disparar_siguiente_bola()
-	if disparando:
-		if timer_entre_balas > 0:
-			timer_entre_balas -= delta
-		else:
-			disparar_siguiente_bala()
-	else:
-		if timer_disparo > 0:
-			timer_disparo -= delta
-		else:
-			timer_disparo = cadencia
-			disparo1()
-			
-			if randi()%100 + 1 < 67:
-				disparo2()
+	#control de disparos
 				
-			if randi()%100 + 1 < 40:
-				disparo3()
-
-func disparo1() -> void:
-	ctdBalas = randf_range(20.0, 30.0)
-	angulo_actual = 0
-	disparando = true
-	timer_entre_balas = 0.0
-	AudioManager.play_bala_enemigo()
-
-func disparo2() -> void:
-	for i in 60:
-		var ang = (360/12)*i
+func disparoEstatico()-> void:
+	var ctdRafagas = 10
+	var ctdBalasxRafaga
+	for i in ctdRafagas:
+		var ang = (360.0*ctdRafagas)
+	
+func disparoRafaga() -> void:
+	var ctdBalas= randf_range(20.0, 30.0)
+	var anguloActual: int = 0
+	var timerBalas: float= 0.0
+	for i in ctdBalas:
+		var arco_total = 90.0
+		var angulo_offset = ((arco_total / (ctdBalas - 1)) * i) - (arco_total / 2.0)	
 		var b = escenaBala.instantiate()
-		b.global_position = $Area2D/CollisionShape2D.global_position
+		b.global_position = puntoDisparo.global_position #dispara desde la boca
+		b.direccion = Vector2.DOWN.rotated(deg_to_rad(angulo_offset))
+		get_parent().add_child(b)
+		anguloActual += 1
+		timerBalas = 0.16#delay
+		AudioManager.play_bala_enemigo()
+		await get_tree().create_timer(0.16).timeout
+		
+func disparo180() -> void:
+	for i in 12:
+		var ang = (360.0/12.0)*i
+		var b = escenaBala.instantiate()
+		b.global_position = puntoDisparo.global_position
 		b.direccion = Vector2.DOWN.rotated(deg_to_rad(ang))
 		get_parent().add_child(b)
-	AudioManager.play_bala_enemigo()
-func disparo3() -> void:
-	if disparos_bola_restantes <= 0 or disparando_bola:
-		return
-	disparos_bola_restantes -= 1
-	bolas_en_secuencia = 3
-	disparando_bola = true
-	timer_entre_bolas = 0.0
-func disparar_siguiente_bola() -> void:
-	var b = escenaBola.instantiate()
-	b.global_position = $Area2D/CollisionShape2D.global_position
-	get_parent().add_child(b)
-	bolas_en_secuencia -= 1
-	timer_entre_bolas = 0.5
-	AudioManager.play_bola_enemigo()
-	if bolas_en_secuencia <= 0:
-		disparando_bola = false
+	AudioManager.play_bala_enemigo2()
+func disparoBola() -> void:
+	var bolasRestantes: int = -1
+	for i in 3:
+		var b = escenaBola.instantiate()
+		b.global_position = puntoDisparo.global_position
+		get_parent().add_child(b)
 		
-func disparar_siguiente_bala() -> void:
-	var arco_total = 90.0
-	var angulo_offset = ((arco_total / (ctdBalas - 1)) * angulo_actual) - (arco_total / 2.0)
-	var b = escenaBala.instantiate()
-	b.global_position = $Area2D/CollisionShape2D.global_position #dispara desde la boca
-	b.direccion = Vector2.DOWN.rotated(deg_to_rad(angulo_offset))
-	get_parent().add_child(b)
-	angulo_actual += 1
-	timer_entre_balas = 0.16#delay
-	if angulo_actual >= ctdBalas:
-		disparando = false
+		AudioManager.play_bola_enemigo()
+		await get_tree().create_timer(0.5).timeout

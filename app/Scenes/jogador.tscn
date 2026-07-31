@@ -3,21 +3,19 @@
 [ext_resource type="Script" uid="uid://chmb0uqep6x8d" path="res://Scenes/jogador.gd" id="1_w43nc"]
 [ext_resource type="Texture2D" uid="uid://b4450fhxynds5" path="res://Imgs/Nave personaje.png" id="2_w43nc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6dqt"]
-radius = 23.0
-height = 64.0
-
 [node name="Jogador" type="Node2D" unique_id=1380988029]
 script = ExtResource("1_w43nc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=995119469]
 modulate = Color(0.99914795, 0.7988196, 0.85310924, 1)
-scale = Vector2(0.05334626, 0.060162764)
+position = Vector2(2.3841858e-07, -0.99999905)
+scale = Vector2(0.030914688, 0.03629796)
 texture = ExtResource("2_w43nc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=718914295]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183605630]
-shape = SubResource("CapsuleShape2D_k6dqt")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1893206610]
+position = Vector2(-112, -30)
+polygon = PackedVector2Array(111, 13, 112, -9, 103, 24, 100, 50, 123, 50, 121, 24, 112, -9)
 
 [connection signal="body_entered" from="Area2D" to="." method="recibir_dano"]

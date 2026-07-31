@@ -4,7 +4,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	Global.reset_game()
 	_setup_audio_buses()
-
+	
 func _setup_audio_buses():
 	if AudioServer.get_bus_index("Music") == -1:
 		AudioServer.add_bus(0)

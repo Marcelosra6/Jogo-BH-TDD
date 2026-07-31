@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="App"
-run/main_scene="uid://cp48cgbakrfpm"
+config/name="blvck lvnd 66.6"
+run/main_scene="uid://g5lf2nksjwoh"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/stretch_mode=0
+boot_splash/image="uid://10de8nogu5ri"
+config/icon="uid://2xaheoifirv4"
 
 [autoload]
 

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://g5lf2nksjwoh"]
+
+[ext_resource type="Script" uid="uid://dm3rclbr7i2bt" path="res://Scripts/inicio.gd" id="1_dcnhq"]
+[ext_resource type="Texture2D" uid="uid://chiow1nxi3h6a" path="res://Imgs/fondo inicio.jpg" id="1_esex0"]
+[ext_resource type="Texture2D" uid="uid://10de8nogu5ri" path="res://Imgs/Boss.png" id="1_r8dgm"]
+[ext_resource type="Script" uid="uid://bocucw3bwsmom" path="res://Scripts/btnJugar.gd" id="4_kv7mu"]
+[ext_resource type="Script" uid="uid://bk31x4ct2b6o4" path="res://Scripts/btnSalir.gd" id="5_qtyot"]
+
+[sub_resource type="Theme" id="Theme_47xpm"]
+
+[node name="Inicio" type="Control" unique_id=1126563328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dcnhq")
+
+[node name="fondoIni" type="Sprite2D" parent="." unique_id=1804094289]
+position = Vector2(262, 477.5)
+scale = Vector2(1, 0.9423828)
+texture = ExtResource("1_esex0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=245113036]
+position = Vector2(31.000011, 444)
+scale = Vector2(1.6837884, 2.5177283)
+texture = ExtResource("1_r8dgm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1018946050]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.74100006
+anchor_top = 0.60400003
+anchor_right = 0.74100006
+anchor_bottom = 0.656
+offset_left = -91.55002
+offset_top = -69.84003
+offset_right = 91.44998
+offset_bottom = 19.23999
+theme_override_constants/separation = 19
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1734864849]
+layout_mode = 2
+theme = SubResource("Theme_47xpm")
+theme_override_font_sizes/font_size = 60
+text = "JUGAR"
+script = ExtResource("4_kv7mu")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=32729677]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "SALIR"
+script = ExtResource("5_qtyot")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=647332909]
+position = Vector2(283, 485)
+
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]
