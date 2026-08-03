@@ -15,3 +15,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.get_parent().has_method("recibir_dano") or area.get_parent().name == "Enemigo":
 		Global.restar_vida_enemigo(100)
 		queue_free()
+	

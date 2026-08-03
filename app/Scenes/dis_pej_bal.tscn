@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dp67ddo6tjqto"]
+
+[ext_resource type="Script" uid="uid://mwv5f7c7hwhg" path="res://Scenes/dis_pej_bal.gd" id="1_5rn0b"]
+[ext_resource type="Texture2D" uid="uid://b0sioqtyonwwo" path="res://Imgs/enemigo pequeño balas.png" id="1_r2k6v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rn0b"]
+radius = 11.0
+height = 52.0
+
+[node name="DisPejBal" type="Node2D" unique_id=1368288372]
+script = ExtResource("1_5rn0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=685392702]
+position = Vector2(0, -1.4305115e-06)
+scale = Vector2(0.03360376, 0.029764524)
+texture = ExtResource("1_r2k6v")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=364211553]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=373089563]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_5rn0b")

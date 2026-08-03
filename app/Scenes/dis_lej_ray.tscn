@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://418cvrwtrafa"]
+
+[ext_resource type="Texture2D" uid="uid://cstj3blv2xyeo" path="res://Imgs/enemigo pequeño rayo.png" id="1_lc4q5"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lc4q5"]
+a = Vector2(-20, -1)
+b = Vector2(22, -1)
+
+[node name="DisLejRay" type="Node2D" unique_id=505162548]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=983613916]
+position = Vector2(0, -1.0000038)
+scale = Vector2(0.08782328, 0.086672954)
+texture = ExtResource("1_lc4q5")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2124637314]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=1210504392]
+position = Vector2(-12, -7)
+polygon = PackedVector2Array(11, -60, 13, -63, 67, 27, -43, 27, -6, -34)
+
+[node name="inicio rayo" type="CollisionShape2D" parent="Area2D" unique_id=1772918094]
+shape = SubResource("SegmentShape2D_lc4q5")

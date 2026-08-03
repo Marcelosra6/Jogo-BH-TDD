@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://co2nplblq7hhs"]
+
+[ext_resource type="Script" uid="uid://c7glb5weneppk" path="res://Scenes/kamikaze.gd" id="1_51ooy"]
+[ext_resource type="Texture2D" uid="uid://v70ueatbtea7" path="res://Imgs/kamikaze.png" id="1_o5fed"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o5fed"]
+radius = 17.0
+height = 82.0
+
+[node name="Kamikaze" type="Node2D" unique_id=1262983260]
+script = ExtResource("1_51ooy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1614925244]
+position = Vector2(0, -2)
+scale = Vector2(0.20416668, 0.1985126)
+texture = ExtResource("1_o5fed")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1985023759]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2130684057]
+shape = SubResource("CapsuleShape2D_o5fed")

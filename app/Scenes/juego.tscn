@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://n66mjcrjskla" path="res://bola_enemigo.tscn" id="9_f0at8"]
 [ext_resource type="AudioStream" uid="uid://m8al82yawdhr" path="res://SoundsAndMusic/PURRPPP loop.wav" id="9_is4ij"]
 [ext_resource type="PackedScene" uid="uid://p4rwg6q07rh" path="res://Scenes/pausa.tscn" id="11_is4ij"]
+[ext_resource type="PackedScene" uid="uid://co2nplblq7hhs" path="res://Scenes/kamikaze.tscn" id="12_jhb2u"]
+[ext_resource type="PackedScene" uid="uid://dp67ddo6tjqto" path="res://Scenes/dis_pej_bal.tscn" id="13_237a5"]
+[ext_resource type="PackedScene" uid="uid://418cvrwtrafa" path="res://Scenes/dis_lej_ray.tscn" id="14_iypdf"]
 
 [node name="Juego" type="Node2D" unique_id=894978718]
 script = ExtResource("1_3g55f")
@@ -47,3 +50,12 @@ position = Vector2(-139, 101)
 [node name="Pausa" parent="." unique_id=1894047206 instance=ExtResource("11_is4ij")]
 
 [node name="Final" type="AudioStreamPlayer2D" parent="." unique_id=1993644660]
+
+[node name="Kamikaze" parent="." unique_id=1262983260 instance=ExtResource("12_jhb2u")]
+position = Vector2(294, -116)
+
+[node name="DisPejBal" parent="." unique_id=1368288372 instance=ExtResource("13_237a5")]
+position = Vector2(487, -34)
+
+[node name="DisLejRay" parent="." unique_id=505162548 instance=ExtResource("14_iypdf")]
+position = Vector2(81, -73)
