@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dp67ddo6tjqto"]
 
-[ext_resource type="Script" uid="uid://mwv5f7c7hwhg" path="res://Scenes/dis_pej_bal.gd" id="1_5rn0b"]
+[ext_resource type="Script" uid="uid://bjg5w8qugorrn" path="res://Scripts/dis_pej_bal.gd" id="1_5rn0b"]
 [ext_resource type="Texture2D" uid="uid://b0sioqtyonwwo" path="res://Imgs/enemigo pequeño balas.png" id="1_r2k6v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rn0b"]

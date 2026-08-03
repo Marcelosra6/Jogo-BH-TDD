@@ -10,9 +10,9 @@ var centro_x: float = 0.0
 var dir_x: int = 1
 var detenido: bool = false
 
-var cadencia: float = 1.0
+var cadencia: float = 3
 var timer_disparo: float = 0.0
-var vida = Global.enemy_vida
+var vida: int = 3
 
 static func espawnear(padre: Node) -> void:
 	var escena = load("res://Scenes/dis_pej_bal.tscn")
@@ -56,4 +56,6 @@ func disparar() -> void:
 	AudioManager.play_bala_enemigo()
 
 func recibir_dano(cantidad: float) -> void:
-	Global.restar_vida_enemigo(cantidad)
+	vida -= int(cantidad)
+	if vida <= 0:
+		queue_free()

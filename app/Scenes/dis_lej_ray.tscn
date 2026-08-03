@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://418cvrwtrafa"]
 
+[ext_resource type="Script" uid="uid://bxag8bs05relq" path="res://Scripts/dis_lej_ray.gd" id="1_5rn0b"]
 [ext_resource type="Texture2D" uid="uid://cstj3blv2xyeo" path="res://Imgs/enemigo pequeño rayo.png" id="1_lc4q5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lc4q5"]
@@ -7,6 +8,7 @@ a = Vector2(-20, -1)
 b = Vector2(22, -1)
 
 [node name="DisLejRay" type="Node2D" unique_id=505162548]
+script = ExtResource("1_5rn0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=983613916]
 position = Vector2(0, -1.0000038)

@@ -20,6 +20,8 @@ var finInicial: bool = false
 # Escenas
 var escenaBala = load("res://Scenes/bala_enemigo.tscn")
 var escenaBola = load("res://Scenes/bola_enemigo.tscn")
+var escenaDisPejBal = load("res://Scenes/dis_pej_bal.tscn")
+var escenaDisLejRay = load("res://Scenes/dis_lej_ray.tscn")
 
 @onready var puntoDisparo = $Area2D/CollisionShape2D
 
@@ -46,7 +48,6 @@ func _process(delta: float) -> void:
 		position.y = centro_infinito_y + radio_circular * sin(t)
 	else:	
 		#Fase 2 de ataque
-		# CORREGIDO: Se acumula sin resetear a 0 en cada frame
 		tiempo_infinito += delta
 		var t = tiempo_infinito * 1.5
 		var radio_x = (limite_derecha - limite_izquierda) / 2.0
@@ -66,9 +67,21 @@ func ejecutarInicial() -> void:
 	atacando = true
 	#disparo estatico
 	await disparoEstatico()
+	#espawn de enemigos secundarios al terminar el patron inicial
+	espawnearSecundarios()
 	#patrones diferentes
 	finInicial = true
 	atacando = false
+
+func espawnearSecundarios() -> void:
+	var ctdPejBal = randi_range(3, 6)
+	for i in ctdPejBal:
+		var e = escenaDisPejBal.instantiate()
+		e.position = Vector2(randf_range(60.0, get_viewport_rect().size.x - 60.0), -80.0)
+		get_parent().add_child(e)
+	var ray = escenaDisLejRay.instantiate()
+	ray.global_position = $Area2D.global_position
+	get_parent().add_child(ray)
 
 func patronMovimiento() -> void:
 	atacando = true
