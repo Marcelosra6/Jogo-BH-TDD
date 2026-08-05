@@ -2,7 +2,7 @@ extends Node
 
 var max_player_vida: int = 5
 var player_vida: int = 5
-var enemy_vida: float = 100000.0
+var enemy_vida: float = 10000.0
 var enemy_kamikaze_vida: float = 600.0 #kamikaze
 var enemy_pequeno_vida: float = 600.0 #disparo balas 
 var enemy_laser_vida: float = 1000.0 #disparo balas 

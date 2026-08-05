@@ -13,3 +13,7 @@ position = Vector2(-1, -4)
 shape = SubResource("RectangleShape2D_gpiy5")
 
 [node name="cooldown" type="Timer" parent="." unique_id=2137210989]
+
+[node name="cooldown_piramides" type="Timer" parent="."]
+
+[node name="cooldown_naves" type="Timer" parent="."]

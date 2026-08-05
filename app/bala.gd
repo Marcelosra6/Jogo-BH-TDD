@@ -11,5 +11,5 @@ func _process(delta):
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var objetivo = area.get_parent()
 	if objetivo.has_method("recibir_dano"):
-		objetivo.recibir_dano(100)
+		objetivo.recibir_dano(200)
 		queue_free()
