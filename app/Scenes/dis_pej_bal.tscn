@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5rn0b"]
 radius = 11.0
-height = 52.0
+height = 22.0
 
 [node name="DisPejBal" type="Node2D" unique_id=1368288372]
 script = ExtResource("1_5rn0b")
@@ -18,5 +18,5 @@ texture = ExtResource("1_r2k6v")
 [node name="Area2D" type="Area2D" parent="." unique_id=364211553]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=373089563]
-position = Vector2(0, 3)
+position = Vector2(0, 18)
 shape = SubResource("CapsuleShape2D_5rn0b")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://blk4p5jc8lmtj"]
+
+[ext_resource type="Script" uid="uid://bv5c0kaahu7yl" path="res://Scripts/spawn.gd" id="1_e66bb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpiy5"]
+size = Vector2(114, 69)
+
+[node name="Spawn" type="Area2D" unique_id=1744240794]
+script = ExtResource("1_e66bb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573229754]
+position = Vector2(-1, -4)
+shape = SubResource("RectangleShape2D_gpiy5")
+
+[node name="cooldown" type="Timer" parent="." unique_id=2137210989]

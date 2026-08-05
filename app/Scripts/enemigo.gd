@@ -4,6 +4,7 @@ var cadencia: float = 0.4
 var timer_disparo: float = 0.0
 
 var vida = Global.enemy_vida
+var muerto: bool = false
 
 # Movimientos
 var tiempo_movimiento: float = 0.0
@@ -61,27 +62,26 @@ func _process(delta: float) -> void:
 			if timer_disparo <= 0:
 				timer_disparo = cadencia
 				patronMovimiento()
-
+				
+func recibir_dano(cantidad: float) -> void:
+	if muerto: return
+	Global.restar_vida_enemigo(cantidad)
+	vida = Global.enemy_vida
+	if vida <= 0:
+		morir()
+		
+func morir() -> void:
+	muerto = true
+	AudioManager.play_muerte()
+	set_process(false)
 #Fases y Patrones
 func ejecutarInicial() -> void:
 	atacando = true
 	#disparo estatico
 	await disparoEstatico()
-	#espawn de enemigos secundarios al terminar el patron inicial
-	espawnearSecundarios()
 	#patrones diferentes
 	finInicial = true
 	atacando = false
-
-func espawnearSecundarios() -> void:
-	var ctdPejBal = randi_range(3, 6)
-	for i in ctdPejBal:
-		var e = escenaDisPejBal.instantiate()
-		e.position = Vector2(randf_range(60.0, get_viewport_rect().size.x - 60.0), -80.0)
-		get_parent().add_child(e)
-	var ray = escenaDisLejRay.instantiate()
-	ray.global_position = $Area2D.global_position
-	get_parent().add_child(ray)
 
 func patronMovimiento() -> void:
 	atacando = true
@@ -93,17 +93,17 @@ func patronMovimiento() -> void:
 	atacando = false
 
 #Disparos
-
 func disparoEstatico() -> void:
 	var ctdRafagas = randi_range(20, 30)
 	for raf in ctdRafagas:
+		if muerto: return
 		for bal in 26:
 			var ang = (360.0 / 26.0) * bal
 			var b = escenaBala.instantiate()
 			b.velocidad = 150.0
 			b.global_position = puntoDisparo.global_position
 			b.direccion = Vector2.DOWN.rotated(deg_to_rad(ang))
-			get_parent().add_child(b)
+			get_parent().add_child.call_deferred(b)
 		AudioManager.play_bala_enemigo2()
 		await get_tree().create_timer(0.6).timeout
 
@@ -112,6 +112,7 @@ func disparoRafaga() -> void:
 	var arco_total = 90.0
 	
 	for balas in ctdBalas:
+		if muerto: return
 		var angulo_offset = ((arco_total / (ctdBalas - 1)) * balas) - (arco_total / 2.0)	
 		var b = escenaBala.instantiate()
 		b.global_position = puntoDisparo.global_position
@@ -123,6 +124,7 @@ func disparoRafaga() -> void:
 
 func disparo180() -> void:
 	for i in 12:
+		if muerto: return
 		var ang = (360.0 / 12.0) * i
 		var b = escenaBala.instantiate()
 		b.global_position = puntoDisparo.global_position
@@ -133,6 +135,7 @@ func disparo180() -> void:
 
 func disparoBola() -> void:
 	for i in 3:
+		if muerto: return
 		var b = escenaBola.instantiate()
 		b.global_position = puntoDisparo.global_position
 		get_parent().add_child(b)

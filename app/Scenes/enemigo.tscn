@@ -20,6 +20,4 @@ texture = ExtResource("2_t4vig")
 position = Vector2(2, 84)
 shape = SubResource("RectangleShape2D_t4vig")
 
-[node name="Timer" type="Timer" parent="." unique_id=933289148]
-
 [connection signal="body_entered" from="Area2D" to="." method="recibir_dano"]
